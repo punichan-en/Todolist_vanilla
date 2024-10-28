@@ -1,161 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODOリスト</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        .todo-form {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 1rem;
-        }
-        .todo-input {
-            flex: 1;
-            padding: 8px;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .add-button {
-            padding: 8px 16px;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .add-button:hover {
-            background: #45a049;
-        }
-        .todo-list {
-            list-style: none;
-            padding: 0;
-        }
-        .todo-item {
-            display: flex;
-            align-items: center;
-            padding: 8px;
-            margin: 4px 0;
-            background: #f9f9f9;
-            border-radius: 4px;
-        }
-        .todo-item.completed {
-            background: #e8e8e8;
-            text-decoration: line-through;
-            color: #666;
-        }
-        .todo-text {
-            flex: 1;
-            margin: 0 8px;
-        }
-        .delete-button {
-            padding: 4px 8px;
-            background: #ff4444;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .delete-button:hover {
-            background: #cc0000;
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TODOリスト</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <h1>TODOリスト</h1>
-    
-    <form id="todo-form" class="todo-form">
-        <input type="text" id="todo-input" class="todo-input" placeholder="新しいタスクを入力..." required>
-        <button type="submit" class="add-button">追加</button>
-    </form>
+	<div class="container">
+		<h1>TODOリスト</h1>
 
-    <ul id="todo-list" class="todo-list"></ul>
+		<form id="todo-form" class="todo-form">
+			<input type="text" id="todo-input" class="todo-input" placeholder="新しいタスクを入力..." required>
+			<button type="submit" class="add-button">追加</button>
+		</form>
 
-    <script>
-        // TODOの状態管理
-        let todos = JSON.parse(localStorage.getItem('todos')) || [];
+		<ul id="todo-list" class="todo-list"></ul>
+	</div>
 
-        // DOM要素の取得
-        const todoForm = document.getElementById('todo-form');
-        const todoInput = document.getElementById('todo-input');
-        const todoList = document.getElementById('todo-list');
-
-        // TODOリストの保存
-        function saveTodos() {
-            localStorage.setItem('todos', JSON.stringify(todos));
-        }
-
-        // TODOリストの表示
-        function renderTodos() {
-            todoList.innerHTML = '';
-            todos.forEach((todo, index) => {
-                const li = document.createElement('li');
-                li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
-                
-                const checkbox = document.createElement('input');
-                checkbox.type = 'checkbox';
-                checkbox.checked = todo.completed;
-                checkbox.addEventListener('change', () => toggleTodo(index));
-
-                const text = document.createElement('span');
-                text.className = 'todo-text';
-                text.textContent = todo.text;
-
-                const deleteButton = document.createElement('button');
-                deleteButton.className = 'delete-button';
-                deleteButton.textContent = '削除';
-                deleteButton.addEventListener('click', () => deleteTodo(index));
-
-                li.appendChild(checkbox);
-                li.appendChild(text);
-                li.appendChild(deleteButton);
-                todoList.appendChild(li);
-            });
-        }
-
-        // 新しいTODOの追加
-        function addTodo(text) {
-            todos.push({
-                text: text,
-                completed: false
-            });
-            saveTodos();
-            renderTodos();
-        }
-
-        // TODOの削除
-        function deleteTodo(index) {
-            todos.splice(index, 1);
-            saveTodos();
-            renderTodos();
-        }
-
-        // TODOの完了状態の切り替え
-        function toggleTodo(index) {
-            todos[index].completed = !todos[index].completed;
-            saveTodos();
-            renderTodos();
-        }
-
-        // フォームの送信イベント
-        todoForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const text = todoInput.value.trim();
-            if (text) {
-                addTodo(text);
-                todoInput.value = '';
-            }
-        });
-
-        // 初期表示
-        renderTodos();
-    </script>
+	<script src="js/main.js"></script>
 </body>
+
 </html>
