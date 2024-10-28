@@ -62,7 +62,7 @@ h1 {
     padding: 12px;
     margin: 4px 0;
     /* 通常時の透明度を0.6に下げる（より透明に） */
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     transition: all 0.3s ease;
 }
