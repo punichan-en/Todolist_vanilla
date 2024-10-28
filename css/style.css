@@ -3,7 +3,7 @@ body {
     max-width: 600px;
     margin: 2rem auto;
     padding: 0 1rem;
-    background-image: url('https://github.com/punichan-en/Todolist_vanilla/blob/main/images/background.jpg');
+    background-image: url('../images/your-background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -35,7 +35,7 @@ h1 {
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .add-button {
@@ -61,29 +61,26 @@ h1 {
     align-items: center;
     padding: 12px;
     margin: 4px 0;
-    /* 通常時の透明度を0.6に下げる（より透明に） */
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 4px;
     transition: all 0.3s ease;
 }
 
 .todo-item:hover {
     transform: translateX(5px);
-    /* ホバー時の透明度を0.98に上げる（ほぼ不透明に） */
     background: rgba(255, 255, 255, 0.98);
 }
 
 .todo-item.completed {
-    /* 完了時の背景も調整 */
     background: rgba(232, 232, 232, 0.6);
     text-decoration: line-through;
     color: #666;
 }
 
 .todo-item.completed:hover {
-    /* 完了アイテムのホバー時も調整 */
     background: rgba(232, 232, 232, 0.98);
 }
+
 .todo-text {
     flex: 1;
     margin: 0 8px;
@@ -100,4 +97,48 @@ h1 {
 
 .delete-button:hover {
     background: #cc0000;
+}
+
+/* チェックボックスのスタイリング */
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* 入力フォームのフォーカス時のスタイル */
+.todo-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(74, 175, 80, 0.3);
+}
+
+/* ボタンのアクティブ状態 */
+.add-button:active,
+.delete-button:active {
+    transform: translateY(1px);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 480px) {
+    body {
+        margin: 1rem auto;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .todo-form {
+        flex-direction: column;
+    }
+
+    .add-button {
+        margin-top: 8px;
+    }
+
+    .todo-item {
+        padding: 8px;
+    }
 }
