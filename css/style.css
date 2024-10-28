@@ -3,7 +3,7 @@ body {
     max-width: 600px;
     margin: 2rem auto;
     padding: 0 1rem;
-    background-image: url('../images/background.jpg');
+    background-image: url('https://github.com/punichan-en/Todolist_vanilla/blob/main/images/background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
