@@ -35,7 +35,7 @@ h1 {
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .add-button {
@@ -61,18 +61,18 @@ h1 {
     align-items: center;
     padding: 12px;
     margin: 4px 0;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 4px;
     transition: all 0.3s ease;
 }
 
 .todo-item:hover {
     transform: translateX(5px);
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .todo-item.completed {
-    background: rgba(232, 232, 232, 0.6);
+    background: rgba(232, 232, 232, 0.5);
     text-decoration: line-through;
     color: #666;
 }
