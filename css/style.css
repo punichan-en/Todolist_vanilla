@@ -61,24 +61,20 @@ h1 {
     align-items: center;
     padding: 12px;
     margin: 4px 0;
-    background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     transition: all 0.3s ease;
 }
 
 .todo-item:hover {
     transform: translateX(5px);
-    background: rgba(255, 255, 255, 0.1);
 }
 
 .todo-item.completed {
-    background: rgba(232, 232, 232, 0.1);
     text-decoration: line-through;
     color: #666;
 }
 
 .todo-item.completed:hover {
-    background: rgba(232, 232, 232, 0.1);
 }
 
 .todo-text {
